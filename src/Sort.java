@@ -12,7 +12,7 @@ public class Sort {
 	private int[] arreglo;
 	
 	
-	public void llenarArreglo(int num,int cont){
+	public void llenarText(int num,int cont){
 		try {
 			arreglo = new int[3000];
 			FileWriter guardar= new FileWriter("Datos.txt");
@@ -24,15 +24,80 @@ public class Sort {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}	//llenarText
+	
+	public String leerText(String texto){
+		arreglo=new int[10];
+		 // Leer una linea a la vez 
+        String line = null;
+
+        try {
+            // FileReader lee el texto 
+            FileReader fileReader = new FileReader(texto);
+
+            BufferedReader bufferedReader =  new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null) {
+                return line;
+            }   
+
+            // Cerrar el archivo
+            bufferedReader.close();         
+        }
+        //Si no logra abir el archivo mandar un mensaje 
+        catch(IOException ex) {
+            System.out.println(
+                "No se pudo leer el archivo '" 
+                + texto + "'");                  
+        
+        }
+		return line;
 	}
 	
-	public void guardarTxt(int x){
-		for(int i = 3000; x>0; x--){
-			try{
-				
+	public int[] llenarVector(String datos){
+		int[] vector = new int[10];
+		String numero = new String();
+		int cont=0;
+		char caracter=' ';
+		
+		for (int i=0;i<datos.length();i++){
+			//Ver el caracter 
+			caracter = datos.charAt(i);
+			//Ver si no es un espacio
+			if (Character.isWhitespace(caracter)==false){
+				numero=numero+String.valueOf(caracter);
 			}
-			catch(Exception e){}
-		}
+			else 
+			{
+				vector[cont]=Integer.parseInt(numero);
+				cont++;
+				numero="";
+			}
+		}//for 
+		return vector;
+	}//llenarVector
+	
+	public static void swap(int[] datos, int i , int j){
+		int temp;
+		temp=datos[i];
+		datos[i]=datos[j];
+		datos[j]=temp;
 	}
 	
+	public int[] selectionSort(int[] datos,int n){
+		int numUnsorted = n;
+		int index;
+		int max;
+		while (numUnsorted>0){
+			max=0;
+			for (index=1;index<numUnsorted;index++){
+				if (datos[max]<datos[index]){
+					max=index;
+				}
+			}
+			swap(datos,max,numUnsorted-1);
+			numUnsorted--;	
+		}
+		return datos;
+	}
 }
