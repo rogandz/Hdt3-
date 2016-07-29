@@ -7,24 +7,24 @@
  */
 
 import java.io.*;
+import java.util.*;
 
 public class Sort {
 	private int[] arreglo;
 	
-	
-	public void llenarText(int num,int cont){
-		try {
-			arreglo = new int[3000];
-			FileWriter guardar= new FileWriter("Datos.txt");
-			PrintWriter escribir= new PrintWriter(guardar);
-			arreglo[cont] = num;
-			escribir.println(arreglo[cont]);
-			System.out.println(num);
+	public void guardarRandText(int[] vector){
+		try{
+			PrintWriter guardar = new PrintWriter("Chilerisimoxd.txt"); //AQUI HAY QUE CAMBIAR EL NOMBRE DEL ARCHIVO AL DE DATOS.TXT
+			for(int x = 0; x<vector.length; x++){
+				guardar.print(vector[x] + " ");
+			}
 			guardar.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Los random ya fueron guardados...");
 		}
-	}	//llenarText
+		catch(Exception e){
+			System.out.println("No se ha podido guardar...");
+		}
+	}
 	
 	public String leerText(String texto){
 		arreglo=new int[10];
@@ -54,7 +54,7 @@ public class Sort {
 		return line;
 	}
 	
-	public int[] llenarVector(String datos){
+	public int[] leerDatos(String datos){
 		int[] vector = new int[10];
 		String numero = new String();
 		int cont=0;

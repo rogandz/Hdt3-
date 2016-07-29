@@ -13,12 +13,16 @@ public class Main {
 		// TODO Auto-generated method stub
 		Sort sort = new Sort(); //Crear el objeto sort 
 		Random rand = new Random(); //Crear el objeto random
-		int numero; 
+		int[] numeros = null; 
+		numeros = new int[3000];
 		for (int i=0;i<3000;i++){
-			numero=rand.nextInt((10000)+1);
+			numeros[i]=rand.nextInt((10000)+1);
 		}
-		int[] vector = sort.llenarVector(sort.leerText("Datos.txt"));
+		System.out.println("Fueron generados " + numeros.length + " random...");
+		System.out.println("...");
+		sort.guardarRandText(numeros);
 		
+		int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		int[] selectionsor = sort.selectionSort(vector, 10);
 		
 		for (int i=0;i<10;i++){
