@@ -12,22 +12,36 @@ import java.util.*;
 public class Sort {
 	private int[] arreglo;
 	
+	
+	public void llenarText(int num,int cont){
+		try {
+			arreglo = new int[3000];
+			FileWriter guardar= new FileWriter("Datos.txt");
+			PrintWriter escribir= new PrintWriter(guardar);
+			arreglo[cont] = num;
+			escribir.println(arreglo[cont]);
+			System.out.println(num);
+			guardar.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}	//llenarText
+	
 	public void guardarRandText(int[] vector){
 		try{
-			PrintWriter guardar = new PrintWriter("Chilerisimoxd.txt"); //AQUI HAY QUE CAMBIAR EL NOMBRE DEL ARCHIVO AL DE DATOS.TXT
-			for(int x = 0; x<vector.length; x++){
-				guardar.print(vector[x] + " ");
+			PrintWriter guardar = new PrintWriter("Datos.txt");
+			for (int x=0;x<vector.length;x++){
+				guardar.print(vector[x]+" ");
 			}
 			guardar.close();
 			System.out.println("Los random ya fueron guardados...");
 		}
 		catch(Exception e){
-			System.out.println("No se ha podido guardar...");
+			
 		}
 	}
-	
 	public String leerText(String texto){
-		arreglo=new int[10];
+		arreglo=new int[3000];
 		 // Leer una linea a la vez 
         String line = null;
 
@@ -55,7 +69,7 @@ public class Sort {
 	}
 	
 	public int[] leerDatos(String datos){
-		int[] vector = new int[10];
+		int[] vector = new int[3000];
 		String numero = new String();
 		int cont=0;
 		char caracter=' ';
@@ -84,7 +98,10 @@ public class Sort {
 		datos[j]=temp;
 	}
 	
-	public int[] selectionSort(int[] datos,int n){
+	
+	//Referencia de Java Structures, Duane A. Bailey
+	public int[] selectionSort(int[] numeros,int n){
+		int[] datos=numeros;
 		int numUnsorted = n;
 		int index;
 		int max;
@@ -100,4 +117,34 @@ public class Sort {
 		}
 		return datos;
 	}
+	
+	//Referencia de Java Structures, Duane A. Bailey
+	public int[] insertionSort(int[] numeros,int n){
+		int [] datos = numeros;
+			int numSorted = 1; 
+			int index; 
+			while (numSorted<n){
+				int temp=datos[numSorted];
+				for (index=numSorted;index>0;index--){
+					if (temp<datos[index-1]){
+						datos[index]=datos[index-1];
+					}
+					else 
+					{
+						break;
+					}
+				}
+				datos[index]=temp;
+				numSorted++;
+			}
+			System.out.println("Vector ordenado por medio del Insertion Sort");
+		return datos;
+	}
+	
+	public int [] mergeSort(int[] numeros, int n){
+		int [] datos = numeros; 
+		return datos;
+	}
+	
+	
 }
