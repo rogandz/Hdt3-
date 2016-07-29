@@ -141,9 +141,36 @@ public class Sort {
 		return datos;
 	}
 	
-	public int [] mergeSort(int[] numeros, int n){
+	public int[] bubbleSort(int[] vec){
+		int[] finalito = vec; 
+		int[] res=new int[1500];
+		
+		for (int j=0;j<1500;j++){
+			for (int k=0;k<1500;k++){
+				if (finalito[j]<finalito[k]){
+					
+				}
+			}
+		}
+		return finalito;
+	}
+	
+	public int [] mergeSort(int[] numeros,int n){
 		int [] datos = numeros; 
+		int [] v1 = new int[1500];
+		int [] v2 = new int[1500];
+		
+		for (int i=0;i<1500;i++){
+			v1[i]=datos[i];
+			v2[i]=datos[i+1500];
+		}
+		
+		int[] ord1=bubbleSort(v1);
+		int[] ord2=bubbleSort(v2);
+	
+		
 		return datos;
+		
 	}
 	
 	

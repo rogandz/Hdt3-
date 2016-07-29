@@ -24,8 +24,9 @@ public class Main {
 		sort.guardarRandText(numeros);
 		int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		
+		
 		//Linea para seleccionar el sort y ver el tiempo de corrida
-		int[] pruebasort = sort.insertionSort(vector,3000);
+		int[] pruebasort = sort.mergeSort(vector,3000);
 		
 		for (int i=0;i<3000;i++){
 			System.out.println(pruebasort[i]);
