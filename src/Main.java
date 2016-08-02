@@ -122,11 +122,10 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
-				//int[] pruebasort = sort.bubbleSort(vector, 3000); AQUI HAY QUE PONER EL DEL QUICK SORT
-				
+				int[] pruebasort = sort.quickSorting(vector, 0, 3000-1); 
 				for (int i=0;i<3000;i++)
 				{
-					//System.out.println(pruebasort[i]);
+					System.out.println(pruebasort[i]);
 				}
 				break;
 		    }
