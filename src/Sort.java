@@ -24,7 +24,7 @@ public class Sort
 	{
 		try 
 		{
-			arreglo = new int[3000];
+			arreglo = new int[100000];
 			FileWriter guardar= new FileWriter("Datos.txt");
 			PrintWriter escribir= new PrintWriter(guardar);
 			arreglo[cont] = num;
@@ -57,7 +57,7 @@ public class Sort
 	}
 	public String leerText(String texto)
 	{
-		arreglo=new int[3000];
+		arreglo=new int[100000];
 		 // Leer una linea a la vez 
         String line = null;
 
@@ -87,7 +87,7 @@ public class Sort
 	
 	public int[] leerDatos(String datos)
 	{
-		int[] vector = new int[3000];
+		int[] vector = new int[100000];
 		String numero = new String();
 		int cont=0;
 		char caracter=' ';
@@ -199,23 +199,19 @@ public class Sort
 		L[midIndex - lowIndex + 1] = Integer.MAX_VALUE;
 		int[] R = new int[highIndex - midIndex + 1];
 		
-		Integer i = midIndex;
-		//Uso del Compare para el ciclo
-		for (i = midIndex + 1; i.compareTo(highIndex)<=0; i++) {
+		for (int i = midIndex + 1; i <= highIndex; i++) {
 			R[i - midIndex - 1] = list[i];
 		}
 		R[highIndex - midIndex] = Integer.MAX_VALUE;
-		int ii = 0, j = 0;
-		Integer compl=lowIndex;
-		Integer comph=highIndex;
-		//Uso del Compare para el ciclo
-		for (compl= lowIndex;comph.compareTo(compl)>=0; compl++) {
-			if (L[ii] <= R[j]) {
-				list[compl] = L[ii];
-				ii++;
+		int i = 0, j = 0;
+		
+		for (int k = lowIndex; k <= highIndex; k++) {
+			if (L[i] <= R[j]) {
+				list[k] = L[i];
+				i++;
 			}
 			else {
-				list[compl] = R[j];
+				list[k] = R[j];
 				j++;
 			}
 		} 
