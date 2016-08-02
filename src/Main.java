@@ -18,6 +18,10 @@ import java.util.Scanner;
 public class Main 
 {
 	private static Scanner elegido;
+	private static Scanner elegidou;
+	private static Scanner elegidou2;
+	private static Scanner elegidou3;
+	private static Scanner elegidou4;
 
 	public static void main(String[] args) 
 	{
@@ -59,24 +63,31 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
+				long ini1 = System.nanoTime();
 				int[] pruebasort = sort.selectionSort(vector,3000);
+				long fin1 = System .nanoTime();
 				
 				for (int i=0;i<3000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
+				System.out.println("Tiempo SelectionSort: " + (fin1 - ini1));
+				
 				System.out.println("Desea volver a ordenarlo por este metodo? 1/0");
-				Scanner elegidou = new Scanner(System.in);
+				elegidou3 = new Scanner(System.in);
 				System.out.println();
-				int entradaa = elegidou.nextInt();
+				int entradaa = elegidou3.nextInt();
 				
 				//Si
 				if (entradaa==1){
+					long ini11 = System.nanoTime();
 					pruebasort = sort.selectionSort(pruebasort,3000);
+					long fin11 = System .nanoTime();
 					for (int i=0;i<3000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
+					System.out.println("Tiempo SelectionSort Ordenado: " + (fin11 - ini11));
 				}
 				break;
 		    }
@@ -96,22 +107,29 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
+				long ini2 = System.nanoTime();
 				int[] pruebasort = sort.insertionSort(vector,3000);
+				long fin2 = System.nanoTime();
 				
 				for (int i=0;i<3000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
+				System.out.println("Tiempo InsertionSort: " + (fin2 - ini2));
+				
 				System.out.println("Desea volver a ordenarlo por este metodo? 1/0");
-				Scanner elegidou = new Scanner(System.in);
+				elegidou4 = new Scanner(System.in);
 				System.out.println();
-				int entradaa = elegidou.nextInt();
+				int entradaa = elegidou4.nextInt();
 				if (entradaa==1){
+					long ini22 = System.nanoTime();
 					pruebasort = sort.insertionSort(pruebasort,3000);
+					long fin22 = System.nanoTime();
 					for (int i=0;i<3000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
+					System.out.println("Tiempo InsertionSort Ordenado: " + (fin22 - ini22));
 				}
 				break;
 		    }
@@ -132,22 +150,29 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
+				long ini3 = System.nanoTime();
 				int[] pruebasort = sort.mergeSort(vector, 0, 3000-1);
+				long fin3 = System.nanoTime();
 				
 				for (int i=0;i<3000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
+				System.out.println("Tiempo InsertionSort: " + (fin3 - ini3));
+				
 				System.out.println("Desea volver a ordenarlo por este metodo? 1/0");
-				Scanner elegidou = new Scanner(System.in);
+				elegidou = new Scanner(System.in);
 				System.out.println();
 				int entradaa = elegidou.nextInt();
 				if (entradaa==1){
+					long ini33 = System.nanoTime();
 					pruebasort = sort.mergeSort(pruebasort, 0, 3000-1);
+					long fin33 = System.nanoTime();
 					for (int i=0;i<3000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
+					System.out.println("Tiempo MergeSort Ordenado: " + (fin33 - ini33));
 				}
 				break;
 		    }
@@ -168,22 +193,29 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
+				long ini4 = System.nanoTime();
 				int[] pruebasort = sort.quickSorting(vector, 0, 3000-1);
+				long fin4 = System.nanoTime();
 				
 				for (int i=0;i<3000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
+				System.out.println("Tiempo QuickSort: " + (fin4 - ini4));
+				
 				System.out.println("Desea volver a ordenarlo por este metodo? 1/0");
-				Scanner elegidou = new Scanner(System.in);
+				elegidou2 = new Scanner(System.in);
 				System.out.println();
-				int entradaa = elegidou.nextInt();
+				int entradaa = elegidou2.nextInt();
 				if (entradaa==1){
+					long ini44 = System.nanoTime();
 					pruebasort = sort.quickSorting(pruebasort, 0, 3000-1);
+					long fin44 = System.nanoTime();
 					for (int i=0;i<3000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
+					System.out.println("Tiempo QuickSort: " + (fin44 - ini44));
 				}
 				break;
 		    }
