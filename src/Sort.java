@@ -199,19 +199,23 @@ public class Sort
 		L[midIndex - lowIndex + 1] = Integer.MAX_VALUE;
 		int[] R = new int[highIndex - midIndex + 1];
 		
-		for (int i = midIndex + 1; i <= highIndex; i++) {
+		Integer i = midIndex;
+		//Uso del Compare para el ciclo
+		for (i = midIndex + 1; i.compareTo(highIndex)<=0; i++) {
 			R[i - midIndex - 1] = list[i];
 		}
 		R[highIndex - midIndex] = Integer.MAX_VALUE;
-		int i = 0, j = 0;
-		
-		for (int k = lowIndex; k <= highIndex; k++) {
-			if (L[i] <= R[j]) {
-				list[k] = L[i];
-				i++;
+		int ii = 0, j = 0;
+		Integer compl=lowIndex;
+		Integer comph=highIndex;
+		//Uso del Compare para el ciclo
+		for (compl= lowIndex;comph.compareTo(compl)>=0; compl++) {
+			if (L[ii] <= R[j]) {
+				list[compl] = L[ii];
+				ii++;
 			}
 			else {
-				list[k] = R[j];
+				list[compl] = R[j];
 				j++;
 			}
 		} 
