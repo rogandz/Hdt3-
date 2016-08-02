@@ -21,14 +21,14 @@ public class Main
 		System.out.println("Ingrese el metodo Sort que desee utilizar:");
 		System.out.println("1.Selection Sort");
 		System.out.println("2.Insertion Sort");
-		System.out.println("3.Bubble Sort");
-		System.out.println("3.Merge Sort");
+		System.out.println("3.Merge Sort    ");
+		System.out.println("4.Quick Sort (FALTA)");
 		elegido = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Presione: 1, 2, 3 o 4");
 		int entrada = elegido.nextInt();
 
-		while (entrada != 4) 
+		while (entrada != 5) 
 		{
 		    if (entrada < 1 || entrada > 4) 
 		    {
@@ -98,7 +98,7 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
-				int[] pruebasort = sort.bubbleSort(vector,3000);
+				int[] pruebasort = sort.mergeSort(vector, 0, 3000-1);
 				
 				for (int i=0;i<3000;i++)
 				{
@@ -122,11 +122,11 @@ public class Main
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
-				int[] pruebasort = sort.mergeSort(vector,3000);
+				//int[] pruebasort = sort.bubbleSort(vector, 3000); AQUI HAY QUE PONER EL DEL QUICK SORT
 				
 				for (int i=0;i<3000;i++)
 				{
-					System.out.println(pruebasort[i]);
+					//System.out.println(pruebasort[i]);
 				}
 				break;
 		    }

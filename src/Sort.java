@@ -130,9 +130,11 @@ public class Sort
 		while (numUnsorted>0)
 		{
 			max=0;
+			
 			for (index=1;index<numUnsorted;index++)
 			{
-				if (datos[max]<datos[index])
+				Integer datos_max =  datos[max];
+				if (datos_max.compareTo((Integer)datos[index])<0)
 				{
 					max=index;
 				}
@@ -153,7 +155,9 @@ public class Sort
 				int temp=datos[numSorted];
 				for (index=numSorted;index>0;index--)
 				{
-					if (temp<datos[index-1])
+					Integer temp1= temp;
+					if(temp1.compareTo((Integer)datos[index-1])<0)//USO DEL COMPARETO
+					//if (temp<datos[index-1])
 					{
 						datos[index]=datos[index-1];
 					}
@@ -169,33 +173,47 @@ public class Sort
 		return datos;
 	}
 	
-	public int[] bubbleSort(int[] vec, int i)
-	{
-		int[] finalito = vec; 
-		for (int j=0;j<1500;j++)
-		{
-			for (int k=0;k<1500;k++)
-			{
-				if (finalito[j]<finalito[k])
-				{
-					
-				}
-			}
-		}
-		return finalito;
-	}
 	
-	public int [] mergeSort(int[] numeros,int n)
-	{
-		int [] datos = numeros; 
-		int [] v1 = new int[1500];
-		int [] v2 = new int[1500];
-		
-		for (int i=0;i<1500;i++)
-		{
-			v1[i]=datos[i];
-			v2[i]=datos[i+1500];
+	
+	//Referencia del codigo mergeSort Autor del codigo mergeSort: Joe James || Fecha de publicacion: 13 de diciembre del 2015 || Extraido de: https://github.com/joeyajames/Java/blob/master/mergeSort.java
+	public int[] mergeSort (int[] vector, int lowIndex, int highIndex) {
+		if (lowIndex == highIndex){
+			
 		}
-		return datos;
+	
+		else{
+			int midIndex = (lowIndex + highIndex) / 2;
+			mergeSort(vector, lowIndex, midIndex);
+			mergeSort(vector, midIndex + 1, highIndex);
+			merge(vector, lowIndex, midIndex, highIndex);
+		}
+		return vector; 
+	}
+
+	public void merge(int[] list, int lowIndex, int midIndex, int highIndex) {
+		int[] L = new int[midIndex - lowIndex + 2];
+		
+		for (int i = lowIndex; i <= midIndex; i++) {
+			L[i - lowIndex] = list[i];
+		}
+		L[midIndex - lowIndex + 1] = Integer.MAX_VALUE;
+		int[] R = new int[highIndex - midIndex + 1];
+		
+		for (int i = midIndex + 1; i <= highIndex; i++) {
+			R[i - midIndex - 1] = list[i];
+		}
+		R[highIndex - midIndex] = Integer.MAX_VALUE;
+		int i = 0, j = 0;
+		
+		for (int k = lowIndex; k <= highIndex; k++) {
+			if (L[i] <= R[j]) {
+				list[k] = L[i];
+				i++;
+			}
+			else {
+				list[k] = R[j];
+				j++;
+			}
+		} 
 	}
 }
