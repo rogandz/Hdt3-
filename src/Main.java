@@ -8,7 +8,7 @@
 * -Andres Giron 15174 
 * Hoja de Trabajo # 3, Algoritmos de Ordenamiento; Main
 * 
-* Este es un programa que genera 3000 numeros random, los ingresa 
+* Este es un programa que genera 100000 numeros random, los ingresa 
 * en un .txt, posteriormente lo lee y los ordena por distintos metodos. 
 ********************************************************/
 
@@ -53,21 +53,21 @@ public class Main
 				Sort sort = new Sort(); //Crear el objeto sort 
 				Random rand = new Random(); //Crear el objeto random
 				int[] numeros = null;
-				numeros=new int[3000];
+				numeros=new int[100000];
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
-					numeros[i]=rand.nextInt((10000)+1);
+					numeros[i]=rand.nextInt((100000)+1);
 				}
 				System.out.println("Fueron generados "+numeros.length+" numeros random...");
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
 				long ini1 = System.nanoTime();
-				int[] pruebasort = sort.selectionSort(vector,3000);
+				int[] pruebasort = sort.selectionSort(vector,100000);
 				long fin1 = System .nanoTime();
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
@@ -81,9 +81,9 @@ public class Main
 				//Si
 				if (entradaa==1){
 					long ini11 = System.nanoTime();
-					pruebasort = sort.selectionSort(pruebasort,3000);
+					pruebasort = sort.selectionSort(pruebasort,100000);
 					long fin11 = System .nanoTime();
-					for (int i=0;i<3000;i++)
+					for (int i=0;i<100000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
@@ -98,20 +98,20 @@ public class Main
 				Sort sort = new Sort(); //Crear el objeto sort 
 				Random rand = new Random(); //Crear el objeto random
 				int[] numeros = null;
-				numeros=new int[3000];
+				numeros=new int[100000];
 				
-				for (int i=0;i<3000;i++){
-					numeros[i]=rand.nextInt((10000)+1);
+				for (int i=0;i<100000;i++){
+					numeros[i]=rand.nextInt((100000)+1);
 				}
 				System.out.println("Fueron generados "+numeros.length+" numeros random...");
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
 				long ini2 = System.nanoTime();
-				int[] pruebasort = sort.insertionSort(vector,3000);
+				int[] pruebasort = sort.insertionSort(vector,100000);
 				long fin2 = System.nanoTime();
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
@@ -123,9 +123,9 @@ public class Main
 				int entradaa = elegidou4.nextInt();
 				if (entradaa==1){
 					long ini22 = System.nanoTime();
-					pruebasort = sort.insertionSort(pruebasort,3000);
+					pruebasort = sort.insertionSort(pruebasort,100000);
 					long fin22 = System.nanoTime();
-					for (int i=0;i<3000;i++)
+					for (int i=0;i<100000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
@@ -140,21 +140,21 @@ public class Main
 				Sort sort = new Sort(); //Crear el objeto sort 
 				Random rand = new Random(); //Crear el objeto random
 				int[] numeros = null;
-				numeros=new int[3000];
+				numeros=new int[100000];
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
-					numeros[i]=rand.nextInt((10000)+1);
+					numeros[i]=rand.nextInt((100000)+1);
 				}
 				System.out.println("Fueron generados "+numeros.length+" numeros random...");
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
 				long ini3 = System.nanoTime();
-				int[] pruebasort = sort.mergeSort(vector, 0, 3000-1);
+				int[] pruebasort = sort.mergeSort(vector, 0, 100000-1);
 				long fin3 = System.nanoTime();
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
@@ -166,9 +166,9 @@ public class Main
 				int entradaa = elegidou.nextInt();
 				if (entradaa==1){
 					long ini33 = System.nanoTime();
-					pruebasort = sort.mergeSort(pruebasort, 0, 3000-1);
+					pruebasort = sort.mergeSort(pruebasort, 0, 100000-1);
 					long fin33 = System.nanoTime();
-					for (int i=0;i<3000;i++)
+					for (int i=0;i<100000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
@@ -183,21 +183,21 @@ public class Main
 				Sort sort = new Sort(); //Crear el objeto sort 
 				Random rand = new Random(); //Crear el objeto random
 				int[] numeros = null;
-				numeros=new int[3000];
+				numeros=new int[100000];
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
-					numeros[i]=rand.nextInt((10000)+1);
+					numeros[i]=rand.nextInt((100000)+1);
 				}
 				System.out.println("Fueron generados "+numeros.length+" numeros random...");
 				sort.guardarRandText(numeros);
 				int[] vector = sort.leerDatos(sort.leerText("Datos.txt"));
 		    	
 				long ini4 = System.nanoTime();
-				int[] pruebasort = sort.quickSorting(vector, 0, 3000-1);
+				int[] pruebasort = sort.quickSorting(vector, 0, 100000-1);
 				long fin4 = System.nanoTime();
 				
-				for (int i=0;i<3000;i++)
+				for (int i=0;i<100000;i++)
 				{
 					System.out.println(pruebasort[i]);
 				}
@@ -209,9 +209,9 @@ public class Main
 				int entradaa = elegidou2.nextInt();
 				if (entradaa==1){
 					long ini44 = System.nanoTime();
-					pruebasort = sort.quickSorting(pruebasort, 0, 3000-1);
+					pruebasort = sort.quickSorting(pruebasort, 0, 100000-1);
 					long fin44 = System.nanoTime();
-					for (int i=0;i<3000;i++)
+					for (int i=0;i<100000;i++)
 					{
 						System.out.println(pruebasort[i]);
 					}
