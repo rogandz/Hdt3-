@@ -199,25 +199,57 @@ public class Sort
 		L[midIndex - lowIndex + 1] = Integer.MAX_VALUE;
 		int[] R = new int[highIndex - midIndex + 1];
 		
-		Integer i = midIndex;
-		//Uso del Compare para el ciclo
-		for (i = midIndex + 1; i.compareTo(highIndex)<=0; i++) {
+		for (int i = midIndex + 1; i <= highIndex; i++) {
 			R[i - midIndex - 1] = list[i];
 		}
 		R[highIndex - midIndex] = Integer.MAX_VALUE;
-		int ii = 0, j = 0;
-		Integer compl=lowIndex;
-		Integer comph=highIndex;
-		//Uso del Compare para el ciclo
-		for (compl= lowIndex;comph.compareTo(compl)>=0; compl++) {
-			if (L[ii] <= R[j]) {
-				list[compl] = L[ii];
-				ii++;
+		int i = 0, j = 0;
+		
+		for (int k = lowIndex; k <= highIndex; k++) {
+			if (L[i] <= R[j]) {
+				list[k] = L[i];
+				i++;
 			}
 			else {
-				list[compl] = R[j];
+				list[k] = R[j];
 				j++;
 			}
 		} 
 	}
+	
+	public int[] quickSorting(int[] numeros, int valorBajo, int valorAlto) 
+	{
+        int valorMedio = valorBajo + (valorAlto - valorBajo) / 2;
+        int pivote = numeros[valorMedio];
+        int i = valorBajo, j = valorAlto;
+        while (i <= j) 
+        {
+            while (numeros[i] < pivote) 
+            {
+                i++;
+            }
+
+            while (numeros[j] > pivote) 
+            {
+                j--;
+            }
+            
+            if (i <= j) 
+            {
+                int temp = numeros[i];
+                numeros[i] = numeros[j];
+                numeros[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        if (valorBajo < j)
+            quickSorting(numeros, valorBajo, j);
+
+        if (valorAlto > i)
+            quickSorting(numeros, i, valorAlto);
+        
+		return numeros;
+    }
 }
